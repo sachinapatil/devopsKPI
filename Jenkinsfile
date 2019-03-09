@@ -7,7 +7,7 @@ pipeline {
     stage('Setup') {
       steps {
         script {
-          if (env.GIT_BRANCH == 'origin/develop' || env.GIT_BRANCH ==~ /(.+)feature-(.+)/) {
+          if (env.GIT_BRANCH == 'develop' || env.GIT_BRANCH ==~ /(.+)feature-(.+)/) {
             target = 'dev'
           } else if (env.GIT_BRANCH ==~ /(.+)release-(.+)/) {
             target = 'pre'
