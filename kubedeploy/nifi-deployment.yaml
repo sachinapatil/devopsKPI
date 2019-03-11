@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nifi
+  name: nifi
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: nifi
+    spec:
+      containers:
+      - env:
+        - name: NIFI_WEB_HTTP_PORT
+          value: "6004"
+        image: apache/nifi:1.5.0
+        name: nifi
+        ports:
+        - containerPort: 6004
+        resources: {}
+      restartPolicy: Always
+status: {}
