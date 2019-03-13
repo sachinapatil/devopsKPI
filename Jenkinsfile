@@ -1,6 +1,8 @@
 pipeline {
   agent {
     label any
+    triggers {
+        pollSCM 'H/10 * * * *'
   }
 
   stages {
@@ -203,4 +205,5 @@ pipeline {
       }
     }
   }
+}
 }
