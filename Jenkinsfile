@@ -1,7 +1,7 @@
 pipeline {
-  agent any 
-    triggers {
-        pollSCM 'H/10 * * * *'
+  agent {
+    label 'docker'
+  }
 
   stages {
     stage('Setup') {
@@ -203,5 +203,4 @@ pipeline {
       }
     }
   }
-}
 }
